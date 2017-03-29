@@ -6,17 +6,21 @@ Enumerable is a python library that re-implements a few core features of python'
 A common thing we do in python, especially in the IT world is for data processing.  Let's say you want to load a log file and filter for specific events and strip off the line endings for further processing:
 
 ```python
+import re
 from enumerable import *
 from operator import methodcaller
 
 with open("log.txt", 'r') as log:
-    results = grep(log, "<pattern>").map(methodcaller('strip'))
+    def critical(log_line):
+        return re.search("^CRITICAL:", log_line)
 
-for x in results:
+    results = filter(log, critical).map(methodcaller('strip'))
+
+for line in results:
     <do something>
 ```
 
-Map, Fold, Reduce and Grep are currently provided and they are all lazy evaluated and support method chaining.
+Map, Fold, and Reduce are currently provided and they are all lazy evaluated and support method chaining.
 
 ```python
 >>> import operator
