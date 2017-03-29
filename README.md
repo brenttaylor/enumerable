@@ -1,6 +1,10 @@
 # Enumerable
 Enumerable is a python library that re-implements a few core features of python's functional toolbox to be more flexible and support a more transactional way of solving problems.  By design, these tools support method chaining and lazy evaluation.
 
+# Installation
+Installation is simple via pip.
+
+`pip install enumerable`
 # Examples of use
 
 A common thing we do in python, especially in the IT world is for data processing.  Let's say you want to load a log file and filter for specific events and strip off the line endings for further processing:
