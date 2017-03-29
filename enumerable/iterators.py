@@ -14,10 +14,6 @@ def Reduce():
     pass
 
 
-def Grep():
-    pass
-
-
 class Enumerable:
     def __init__(self, iterable):
         self._iterable = iterable
@@ -27,9 +23,6 @@ class Enumerable:
 
     def filter(self, func, *args, **kwargs):
         return Filter(self._iterable, func, *args, **kwargs)
-
-    def grep(self, pattern):
-        return Grep(self._iterable, pattern)
 
     def map(self, func, *args, **kwargs):
         return Map(self._iterable, func, *args, **kwargs)
@@ -43,10 +36,6 @@ class Enumerable:
 
 def Filter(iterable, func, *args, **kwargs):
     return Enumerable((x for x in iterable if func(x, *args, **kwargs)))
-
-
-def Grep(iterable, pattern):
-    return Filter(iterable, lambda x: True if search(pattern, x) else False)
 
 
 def Map(iterable, func, *args, **kwargs):
