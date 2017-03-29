@@ -12,5 +12,8 @@ setup(
     url='https://github.com/brenttaylor/enumerable',
     download_url='https://github.com/brenttaylor/enumerable/archive/release-0.2.tar.gz',
     keywords=['functools', 'map', 'filter', 'reduce'],
-    classifiers=['Programming Language :: Python :: 3'],
+    classifiers=[
+        'Programming Language :: Python :: 3'
+        'Programming Language :: Python :: 2.7'
+        ],
 )
