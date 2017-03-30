@@ -14,11 +14,23 @@ import re
 from enumerable import *
 from operator import methodcaller
 
-with open("log.txt", 'r') as log:
-    def critical(log_line):
-        return re.search("^CRITICAL:", log_line)
 
-    results = filter(log, critical).map(methodcaller('strip'))
+# Assume a log format along the lines of:
+# CRITICAL - [5:17:2015] - <error details>
+# WARNING - [2:2:2016] - <warning details>
+# SUCCESS - [8:24:2017] - <success details>
+with open("log.txt", 'r') as log:
+    def critical_error(log_line):
+        return re.search("^CRITICAL", log_line)
+
+    def date(log_line, timestamp):
+      return timestamp in log_line
+
+    # Get today's critical errors and strip
+    # strip the line endings
+    results = .filter(date, "[3:29:2017]") \
+      .filter(log, critical_error) \
+      .map(methodcaller('strip'))
 
 for line in results:
     <do something>
