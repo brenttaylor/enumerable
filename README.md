@@ -28,8 +28,8 @@ with open("log.txt", 'r') as log:
 
     # Get today's critical errors and strip
     # strip the line endings
-    results = filter(date, "[3:29:2017]") \
-      .filter(log, critical_error) \
+    results = filter(log, date, "[3:29:2017]") \
+      .filter(critical_error) \
       .map(methodcaller('strip'))
 
 for line in results:
