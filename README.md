@@ -11,7 +11,7 @@ A common thing we do in python, especially in the IT world is for data processin
 
 ```python
 import re
-from enumerable import *
+from enumerable import map, filter, reduce
 from operator import methodcaller
 
 
@@ -40,7 +40,7 @@ Map, Fold, and Reduce are currently provided and they are all lazy evaluated and
 
 ```python
 >>> import operator
->>> from enumerable import *
+>>> from enumerable import map, filter, reduce
 >>>
 >>> my_list = [1, 2, 3, 4, 5]
 >>> # Notice that any additional arguments passed to map/filter/reduce
